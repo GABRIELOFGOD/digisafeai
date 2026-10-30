@@ -1,0 +1,57 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy information",
+};
+
+export default function PrivacyPage() {
+  return (
+    <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-12 sm:px-8 sm:py-16" id="main-content">
+      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+        Privacy
+      </p>
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+        How report information is handled
+      </h1>
+      <p className="mt-5 leading-7 text-muted-foreground">
+        You can submit a report without creating an account or giving your
+        name. Sharing a safe contact method is optional. If you share one, it is
+        encrypted and stored separately from the report description.
+      </p>
+      <section className="mt-8 space-y-6">
+        <div>
+          <h2 className="text-lg font-semibold">Who can access a report?</h2>
+          <p className="mt-2 leading-7 text-muted-foreground">
+            Report details are stored for review by authorised AYVDI
+            safeguarding staff. Access to case details and optional contact
+            information is recorded.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold">Limits of anonymity</h2>
+          <p className="mt-2 leading-7 text-muted-foreground">
+            Anonymous reporting can limit follow-up. DigiSafe AI cannot promise
+            absolute anonymity because hosting, network, or security systems
+            may process technical metadata.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold">Images and sensitive details</h2>
+          <p className="mt-2 leading-7 text-muted-foreground">
+            Do not upload or send nude or sexually explicit images. A short
+            description is enough; graphic details are not required.
+          </p>
+        </div>
+        <div className="rounded-xl border border-border bg-muted p-5">
+          <h2 className="font-semibold">Policy details to be confirmed</h2>
+          <p className="mt-2 leading-7 text-muted-foreground">
+            AYVDI must publish its approved lawful basis, retention and deletion
+            period, privacy contact, and data-protection process before
+            production rollout. This page does not replace a reviewed privacy
+            notice.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
