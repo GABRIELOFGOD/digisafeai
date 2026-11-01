@@ -1,43 +1,84 @@
-import Link from "next/link";
+"use client";
 
-export function SiteHeader() {
-  return (
-    <header className="border-b border-border bg-card">
-      <div className="mx-auto flex min-h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { SunMoon } from "lucide-react";
+
+const navigation = [
+  { href: "/report", label: "Report" },
+  { href: "/companion", label: "Talk to AI" },
+  { href: "/help-now", label: "Get help now" },
+  { href: "/learn", label: "Learn" },
+];
+
+export function SiteHeader({
+  onToggleTheme,
+}: {
+  onToggleTheme: () => void;
+}) {
+  const pathname = usePathname();
+  const navLinks = () =>
+    navigation.map((item) => {
+      const isCurrent =
+        pathname === item.href ||
+        (item.href !== "/" && pathname.startsWith(`${item.href}/`));
+
+      return (
         <Link
-          aria-label="DigiSafe AI home"
-          className="text-lg font-bold tracking-tight text-primary"
-          href="/"
+          aria-current={isCurrent ? "page" : undefined}
+          className="site-nav-link"
+          href={item.href}
+          key={item.href}
         >
-          DigiSafe AI
+          {item.label}
         </Link>
-        <nav aria-label="Main navigation" className="flex flex-wrap gap-x-4 gap-y-2">
+      );
+    });
+
+  return (
+    <>
+      <header className="site-header">
+        <div className="site-header-inner">
           <Link
-            className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
-            href="/report"
+            aria-label="DigiSafe AI home"
+            className="site-brand"
+            href="/"
           >
-            Report
+            <span aria-hidden="true" className="site-brand-mark">
+              <Image
+                alt=""
+                className="site-brand-image"
+                height={60}
+                style={{ objectFit: "contain" }}
+                src="/logo.png"
+                width={60}
+              />
+            </span>
+            <span>DigiSafe <span className="text-primary">AI</span></span>
           </Link>
-          <Link
-            className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-            href="/help-now"
-          >
-            Help
-          </Link>
-          <Link
-            className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-            href="/learn"
-          >
-            Learn
-          </Link>
-          <Link
-            className="text-sm font-medium text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
-            href="/companion"
-          >
-            AI
-          </Link>
-        </nav>
-      </div>
-    </header>
+          <nav aria-label="Main navigation" className="site-nav">
+            {navLinks()}
+          </nav>
+          <div className="site-header-actions">
+            <button
+              aria-label="Toggle color theme"
+              className="theme-toggle"
+              onClick={onToggleTheme}
+              title="Toggle color theme"
+              type="button"
+            >
+              <SunMoon aria-hidden="true" size={18} />
+            </button>
+          </div>
+        </div>
+      </header>
+      <nav
+        aria-label="Mobile main navigation"
+        className="site-nav-mobile"
+      >
+        {navLinks()}
+      </nav>
+    </>
   );
 }

@@ -123,7 +123,7 @@ export function ReportForm() {
     return (
       <section
         aria-labelledby="report-submitted-heading"
-        className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8"
+        className="report-panel"
         role="status"
       >
         <p className="text-sm font-semibold text-primary">Report saved</p>
@@ -138,7 +138,7 @@ export function ReportForm() {
           reviewed it yet. Keep this reference code if you need to refer to your
           report later.
         </p>
-        <p className="mt-5 rounded-lg bg-muted px-4 py-3 font-mono text-lg font-semibold tracking-wider">
+        <p className="mt-5 rounded-xl bg-secondary px-4 py-3 font-mono text-lg font-semibold tracking-wider text-primary">
           {referenceCode}
         </p>
         <p className="mt-4 text-sm leading-6 text-muted-foreground">
@@ -153,11 +153,21 @@ export function ReportForm() {
     return (
       <section
         aria-labelledby="review-report-heading"
-        className="mt-8 rounded-2xl border border-border bg-card p-6 sm:p-8"
+        className="report-panel"
       >
-        <p className="text-sm font-semibold text-primary">Step 2 of 2</p>
+        <p className="report-step-label">Step 2 of 2</p>
+        <div
+          aria-label="Step 2 of 2"
+          aria-valuemax={2}
+          aria-valuemin={1}
+          aria-valuenow={2}
+          className="report-progress"
+          role="progressbar"
+        >
+          <span style={{ width: "100%" }} />
+        </div>
         <h2
-          className="mt-2 text-2xl font-semibold"
+          className="report-review-heading"
           id="review-report-heading"
         >
           Review before sending
@@ -166,7 +176,7 @@ export function ReportForm() {
           Check that you are comfortable sharing these details. You can go back
           and change them before submitting.
         </p>
-        <dl className="mt-6 space-y-4">
+        <dl className="report-review-list space-y-4">
           <div>
             <dt className="text-sm font-medium text-muted-foreground">
               Reporting about
@@ -233,7 +243,7 @@ export function ReportForm() {
           )}
         </dl>
         {errorMessage && (
-          <p className="mt-6 rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
+          <p className="report-error mt-6" role="alert">
             {errorMessage}
           </p>
         )}
@@ -246,7 +256,12 @@ export function ReportForm() {
           >
             Go back and edit
           </Button>
-          <Button disabled={isSubmitting} onClick={submitReport} type="button">
+          <Button
+            className="report-submit-button"
+            disabled={isSubmitting}
+            onClick={submitReport}
+            type="button"
+          >
             {isSubmitting ? "Submitting…" : "Submit report"}
           </Button>
         </div>
@@ -256,7 +271,7 @@ export function ReportForm() {
 
   return (
     <form
-      className="mt-8 space-y-8 rounded-2xl border border-border bg-card p-6 sm:p-8"
+      className="report-form space-y-7"
       onSubmit={(event) => {
         event.preventDefault();
         setErrorMessage("");
@@ -269,10 +284,22 @@ export function ReportForm() {
         setStep("review");
       }}
     >
-      <p className="text-sm font-semibold text-primary">Step 1 of 2</p>
+      <div>
+        <p className="report-step-label">Step 1 of 2</p>
+        <div
+          aria-label="Step 1 of 2"
+          aria-valuemax={2}
+          aria-valuemin={1}
+          aria-valuenow={1}
+          className="report-progress"
+          role="progressbar"
+        >
+          <span />
+        </div>
+      </div>
 
       {errorMessage && (
-        <p className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
+        <p className="report-error" role="alert">
           {errorMessage}
         </p>
       )}
@@ -282,7 +309,7 @@ export function ReportForm() {
           Are you reporting something that happened to you or to someone else?
         </legend>
         {(["myself", "someone_else"] as const).map((value) => (
-          <label className="flex items-center gap-3" key={value}>
+          <label className="report-choice" key={value}>
             <input
               checked={values.reportAbout === value}
               name="reportAbout"
@@ -403,7 +430,7 @@ export function ReportForm() {
           Are you in immediate danger right now?
         </legend>
         {(["yes", "no"] as const).map((value) => (
-          <label className="flex items-center gap-3" key={value}>
+          <label className="report-choice" key={value}>
             <input
               checked={values.immediateDanger === value}
               name="immediateDanger"
@@ -478,7 +505,7 @@ export function ReportForm() {
         Anonymous reporting can limit follow-up. Technical metadata may still
         exist.
       </p>
-      <Button className="w-full sm:w-auto" type="submit">
+      <Button className="report-submit-button w-full sm:w-auto" type="submit">
         Review report
       </Button>
     </form>

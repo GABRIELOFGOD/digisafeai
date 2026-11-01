@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function HelpNowPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-12 sm:px-8 sm:py-16" id="main-content">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+    <main className="public-main public-prose" id="main-content">
+      <p className="eyebrow">
         Get help now
       </p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">

@@ -1,89 +1,129 @@
 import Link from "next/link";
-import { buttonVariants } from "@/components/ui/button";
+import {
+  ArrowRight,
+  BookOpen,
+  HeartHandshake,
+  MessageCircle,
+  ShieldCheck,
+} from "lucide-react";
 
-const plannedFeatures = [
+const features = [
+  {
+    title: "Report a concern",
+    description: "Share what happened in a guided report, with no account needed.",
+    href: "/report",
+    status: "Available",
+    icon: ShieldCheck,
+    statusClass: "feature-status-live",
+  },
   {
     title: "Talk to the AI companion",
-    description:
-      "A calm, age-appropriate way to explore options and reach human support.",
+    description: "The companion is being prepared with safeguarding and privacy reviews.",
+    href: "/companion",
+    status: "In development",
+    icon: MessageCircle,
+    statusClass: "feature-status-planned",
   },
   {
-    title: "Find verified help",
-    description:
-      "A directory of child-protection and support services verified by AYVDI.",
+    title: "Get help now",
+    description: "Read urgent guidance and see what support information is available.",
+    href: "/help-now",
+    status: "Guidance",
+    icon: HeartHandshake,
+    statusClass: "feature-status-planned",
   },
   {
-    title: "Learn about digital safety",
-    description:
-      "Practical, age-appropriate information about safer and more respectful online experiences.",
+    title: "Learn about online safety",
+    description: "Explore practical guidance for safer and more respectful online experiences.",
+    href: "/learn",
+    status: "Learning",
+    icon: BookOpen,
+    statusClass: "feature-status-live",
   },
 ];
 
 export function HomePage() {
   return (
-    <main id="main-content" className="flex-1">
-      <section className="border-b border-border bg-card">
-        <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-20">
-          <div
-            aria-live="polite"
-            className="mb-10 rounded-xl border border-primary/20 bg-secondary px-5 py-4 text-sm leading-6 text-secondary-foreground"
-          >
-            DigiSafe AI is for sharing safeguarding concerns and learning about
-            digital safety. It is not an emergency service and cannot dispatch
-            responders.
+    <main id="main-content" className="public-main">
+      <section className="home-hero">
+        <div className="home-hero-copy">
+          <p className="eyebrow">Child protection · Digital safety · Support</p>
+          <h1>Speak up. Find support. Stay safer.</h1>
+          <p className="home-hero-description">
+            A calm place for students to share a concern, explore their options,
+            and find a next step. You don’t need an account to report.
+          </p>
+          <div className="home-hero-actions">
+            <Link className="button-primary" href="/report">
+              Report something <ArrowRight aria-hidden="true" size={18} />
+            </Link>
+            <Link className="button-secondary" href="/help-now">
+              Get help now
+            </Link>
           </div>
-
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-primary">
-            Child protection · Digital safety · Support
+          <p className="home-hero-note">
+            DigiSafe AI is not an emergency service and cannot dispatch
+            responders.
           </p>
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            A safer place to find your next step.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-            DigiSafe AI is being developed to help secondary school students
-            understand their options, learn about digital safety, and reach
-            appropriate human support.
-          </p>
-          <Link className={`${buttonVariants({ size: "lg" })} mt-8`} href="/report">
-            Report a concern
-          </Link>
         </div>
+        <Link
+          aria-label="Learn about the DigiSafe AI companion"
+          className="home-orb-link"
+          href="/companion"
+        >
+          <span aria-hidden="true" className="home-orb-ring" />
+          <span aria-hidden="true" className="home-orb" />
+          <span className="home-orb-caption">Support is being prepared</span>
+        </Link>
       </section>
 
       <section
-        aria-labelledby="planned-features-heading"
-        className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-8 sm:py-16"
+        aria-labelledby="features-heading"
+        className="home-features"
       >
-        <div className="mb-7 max-w-2xl">
-          <h2
-            className="text-2xl font-semibold tracking-tight"
-            id="planned-features-heading"
-          >
-            What DigiSafe AI is being built to offer
-          </h2>
-          <p className="mt-3 leading-7 text-muted-foreground">
-            Reporting is available. The AI companion, verified help directory,
-            and learning resources are still being developed.
+        <div className="home-section-heading">
+          <h2 id="features-heading">Choose what feels right for you</h2>
+          <p>
+            You can explore at your own pace. Sharing a concern is always your
+            choice.
           </p>
         </div>
-
-        <ul className="grid gap-4 md:grid-cols-3">
-          {plannedFeatures.map((feature) => (
-            <li
-              className="rounded-2xl border border-border bg-card p-6"
-              key={feature.title}
-            >
-              <h3 className="text-lg font-semibold">{feature.title}</h3>
-              <p className="mt-3 leading-7 text-muted-foreground">
-                {feature.description}
-              </p>
-              <p className="mt-5 text-sm font-medium text-primary">
-                In development
-              </p>
-            </li>
-          ))}
+        <ul className="feature-grid">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <li key={feature.title}>
+                <Link className="feature-card" href={feature.href}>
+                  <span aria-hidden="true" className="feature-icon">
+                    <Icon size={21} />
+                  </span>
+                  <span className="feature-status">
+                    <span className={feature.statusClass} />
+                    {feature.status}
+                  </span>
+                  <span className="feature-title">{feature.title}</span>
+                  <span className="feature-description">
+                    {feature.description}
+                  </span>
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="feature-arrow"
+                    size={18}
+                  />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </section>
+      <aside className="safety-note">
+        <ShieldCheck aria-hidden="true" size={21} />
+        <p>
+          DigiSafe AI is an initiative of AYVDI. The AI companion is not
+          available yet, and no content here replaces support from trained
+          people. What happened is not your fault.
+        </p>
+      </aside>
     </main>
   );
 }

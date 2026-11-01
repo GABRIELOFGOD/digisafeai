@@ -8,31 +8,32 @@ export const metadata: Metadata = {
 
 export default function ReportPage() {
   return (
-    <main
-      className="mx-auto w-full max-w-3xl flex-1 px-5 py-10 sm:px-8 sm:py-14"
-      id="main-content"
-    >
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+    <main className="public-main" id="main-content">
+      <header className="report-intro">
+        <p className="eyebrow">
         Report a concern
-      </p>
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-        You can share what happened in your own words.
-      </h1>
-      <p className="mt-4 leading-7 text-muted-foreground">
-        You do not need to create an account or provide your name. Only share
-        details you feel comfortable sharing. Do not upload or send images.
-      </p>
-      <div className="mt-6 rounded-xl border border-border bg-muted p-5 text-sm leading-6 text-muted-foreground">
+        </p>
+        <h1>You can share what happened in your own words.</h1>
         <p>
-          Reports are reviewed by the safeguarding team. DigiSafe AI is not an
-          emergency service and cannot dispatch emergency responders.
+          You do not need to create an account or provide your name. Only share
+          details you feel comfortable sharing.
         </p>
-        <p className="mt-3">
-          Anonymous reports can limit follow-up. If you choose to provide a safe
-          contact method, it is stored separately in encrypted form. Technical
-          metadata may still be processed by the service.
-        </p>
-      </div>
+        <div className="report-note">
+          <p>
+            Reports are reviewed by the safeguarding team. DigiSafe AI is not
+            an emergency service and cannot dispatch emergency responders.
+          </p>
+          <p>
+            Anonymous reports can limit follow-up. If you choose to provide a
+            safe contact method, it is stored separately in encrypted form.
+            Technical metadata may still be processed by the service.
+          </p>
+          <p>
+            Please do not upload or send nude or private images. A description
+            in your own words is enough.
+          </p>
+        </div>
+      </header>
       <ReportForm />
     </main>
   );

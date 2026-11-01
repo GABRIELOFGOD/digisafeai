@@ -41,8 +41,8 @@ const guidance = [
 
 export default function LearnPage() {
   return (
-    <main className="mx-auto w-full max-w-4xl flex-1 px-5 py-12 sm:px-8 sm:py-16" id="main-content">
-      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+    <main className="public-main public-prose" id="main-content">
+      <p className="eyebrow">
         Learning centre
       </p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
