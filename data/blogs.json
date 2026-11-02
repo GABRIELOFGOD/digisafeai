@@ -1,0 +1,344 @@
+{
+  "blogs": [
+    {
+      "slug": "pause-before-you-post",
+      "title": "A small pause before you post can make a big difference",
+      "excerpt": "A quick check-in can help you share with more confidence and protect your privacy.",
+      "category": "Everyday digital safety",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-10-28T09:00:00.000Z",
+      "image": "digital-literacy-and-online-safety.JPG",
+      "imageAlt": "Young people taking part in a digital literacy activity",
+      "isFeatured": true,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Posting is easy; taking it back can be harder",
+          "paragraphs": [
+            "A funny photo, a quick update, or a message in a group chat can feel harmless in the moment. But once something is shared, other people may save it or pass it on, even if you later delete it.",
+            "Before posting, take a breath and ask yourself: would I be okay with this being seen tomorrow, or by someone outside this chat? You do not need to be worried about every post. The pause is simply a chance to make sure it still feels right to you."
+          ]
+        },
+        {
+          "heading": "Keep personal details personal",
+          "paragraphs": [
+            "A post can reveal more than its caption. A school badge, a street sign, a regular routine, or a location tag may give clues about where you are. Check the background and audience as well as the words.",
+            "If you are unsure, you can wait, share with a smaller audience, or leave the detail out. Choosing not to post is a perfectly good choice."
+          ]
+        },
+        {
+          "heading": "Your comfort matters",
+          "paragraphs": [
+            "You are allowed to change your mind about a photo or message. If someone is pressuring you to post something, you can say no and talk with a trusted person if you need support."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "when-a-friend-shares-something-worrying",
+      "title": "When a friend shares something worrying online",
+      "excerpt": "Being there for a friend does not mean you have to solve everything on your own.",
+      "category": "Getting support",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-10-21T09:00:00.000Z",
+      "image": "girl-child-education.jpg",
+      "imageAlt": "A student learning with support from a mentor",
+      "isFeatured": true,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Listen without rushing to fix it",
+          "paragraphs": [
+            "If a friend tells you about a difficult message, a frightening interaction, or something they regret sharing, start by listening. You can say, “I’m glad you told me,” or “That sounds hard.” They may need someone calm beside them more than they need an instant answer.",
+            "Try not to blame them or ask for details they do not want to share. What happened is not made okay by a mistake, a response, or a decision they made."
+          ]
+        },
+        {
+          "heading": "Help them find someone safe",
+          "paragraphs": [
+            "You can offer to sit with them while they speak to a trusted adult, teacher, caregiver, or safeguarding professional. Let them have a say in who feels safe to approach, unless someone may be in immediate danger—in that case, involve a responsible adult promptly.",
+            "You do not have to carry a serious concern by yourself. Asking for help is not betraying a friend; it is a way to make sure they have support."
+          ]
+        },
+        {
+          "heading": "Do not forward private material",
+          "paragraphs": [
+            "If the situation involves a private image or message, do not forward it or ask your friend to send it to you. Help them find a trusted adult or appropriate support service instead."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "make-group-chats-feel-better",
+      "title": "Making group chats feel better for everyone",
+      "excerpt": "A few thoughtful habits can help a group chat feel more welcoming and less stressful.",
+      "category": "Friends and communication",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-10-14T09:00:00.000Z",
+      "image": "online-safety-ayvdi.JPG",
+      "imageAlt": "Students discussing online safety together",
+      "isFeatured": true,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Remember there is a person behind the screen",
+          "paragraphs": [
+            "Group chats move quickly. A joke can land differently in text, and a pile-on can grow before anyone stops to think. Before replying, consider how your words might feel to the person reading them.",
+            "If someone asks for a topic or joke to stop, respect that. You do not need to agree about everything to treat each other with care."
+          ]
+        },
+        {
+          "heading": "Make space for people to opt out",
+          "paragraphs": [
+            "Not everyone can reply straight away, and no one should have to be available every minute. Muting a chat, taking a break, or leaving a conversation can be healthy choices.",
+            "If a chat is making you anxious, you can step away and talk to someone you trust. If you are being targeted, save relevant messages only if it is safe to do so and ask for help."
+          ]
+        },
+        {
+          "heading": "Do not share someone else's moment",
+          "paragraphs": [
+            "Check before posting a screenshot, photo, or personal story from a group. Being included in a chat does not mean everyone has agreed for its contents to be shared elsewhere."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "check-your-privacy-settings-together",
+      "title": "A simple privacy check you can do at your own pace",
+      "excerpt": "Reviewing a few account settings can help you feel more in control of who sees your posts.",
+      "category": "Everyday digital safety",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-10-07T09:00:00.000Z",
+      "image": "digital-literacy-and-online-safety.JPG",
+      "imageAlt": "A digital literacy session about safer online choices",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Start with who can see your posts",
+          "paragraphs": [
+            "Apps change their menus from time to time, but most have privacy or audience settings. Look for options that show who can view your profile, posts, stories, or activity.",
+            "Choose settings that fit your comfort. A smaller audience can feel right for personal updates, while some information may be best kept off a public profile altogether."
+          ]
+        },
+        {
+          "heading": "Review tags, location, and messages",
+          "paragraphs": [
+            "See whether you can review tags before they appear on your profile, limit who can message you, and control whether a post includes your location. You can also remove details from older posts if you no longer want them visible.",
+            "If you share a device with family, consider asking a trusted adult to help you check settings without sharing your passwords."
+          ]
+        },
+        {
+          "heading": "Make it a regular check-in",
+          "paragraphs": [
+            "You do not need to review everything in one sitting. A short check every so often is enough to notice when an app has changed how a setting works."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "your-boundaries-count-online-too",
+      "title": "Your boundaries count online too",
+      "excerpt": "You can slow down, say no, or leave a conversation when it stops feeling okay.",
+      "category": "Friends and communication",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-09-30T09:00:00.000Z",
+      "image": "teen-safety-education.JPG",
+      "imageAlt": "Teenagers learning about wellbeing and personal boundaries",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "You do not owe anyone an instant reply",
+          "paragraphs": [
+            "A notification can make a message feel urgent, but you are allowed to take your time. You can reply later, mute a conversation, or decide not to respond.",
+            "A person who respects you will respect a reasonable boundary. If someone keeps pushing after you have said no, that is a good reason to step back and seek support."
+          ]
+        },
+        {
+          "heading": "A clear no is enough",
+          "paragraphs": [
+            "You can use a short message such as “I’m not comfortable with that” or “Please stop asking.” You do not have to explain your boundary over and over.",
+            "If saying no directly might make things less safe, you can stop replying and tell a trusted adult or support person what is happening."
+          ]
+        },
+        {
+          "heading": "You deserve support without blame",
+          "paragraphs": [
+            "If someone has ignored your boundaries, it is not your fault. Reach out to someone who will listen and help you think through safe next steps."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "asking-a-trusted-adult-for-help",
+      "title": "How to start a conversation with a trusted adult",
+      "excerpt": "You do not need perfect words or the whole story before you ask for help.",
+      "category": "Getting support",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-09-23T09:00:00.000Z",
+      "image": "girl-child-education.jpg",
+      "imageAlt": "A young person speaking with a supportive adult",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Begin with what feels easiest",
+          "paragraphs": [
+            "It can be hard to know how to begin, especially if you are worried about how someone will react. You might say, “Something online is worrying me, and I need help,” or write a note if talking feels difficult.",
+            "You can share only what you are ready to share. A trusted adult can help you work out what information is useful and what can happen next."
+          ]
+        },
+        {
+          "heading": "Choose someone who will listen",
+          "paragraphs": [
+            "This could be a caregiver, teacher, school counsellor, coach, or another responsible adult you trust. If the first person is not helpful, it is okay to try another safe person.",
+            "You can ask them to listen first, explain what they can keep private, and include you in decisions wherever possible."
+          ]
+        },
+        {
+          "heading": "If there is immediate danger",
+          "paragraphs": [
+            "If you or someone else may be in immediate danger, contact local emergency services or get help from a nearby responsible adult straight away."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "kindness-in-online-games",
+      "title": "Keeping online games fun, friendly, and safer",
+      "excerpt": "Enjoying a game is easier when you know how to handle uncomfortable chats and requests.",
+      "category": "Gaming and wellbeing",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-09-16T09:00:00.000Z",
+      "image": "online-safety-ayvdi.JPG",
+      "imageAlt": "Young people learning about respectful online spaces",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Keep game chat respectful",
+          "paragraphs": [
+            "Competitive games can get intense, but insults and threats do not have to be part of the fun. Use mute, block, or report tools when they are available, and take a break if a conversation is getting to you.",
+            "If you see someone else being targeted, you can avoid joining in and use the game's reporting options. You do not have to confront a player directly."
+          ]
+        },
+        {
+          "heading": "Be thoughtful about requests",
+          "paragraphs": [
+            "Be cautious if someone asks for private details, passwords, money, or a conversation to move somewhere secret. You can say no and check in with a trusted adult.",
+            "Use a different password for important accounts when possible, and never share a one-time sign-in code with another player."
+          ]
+        },
+        {
+          "heading": "Balance is part of wellbeing",
+          "paragraphs": [
+            "Sleep, school, friends, and offline activities matter too. Setting a stopping time or taking a stretch break can help gaming stay enjoyable."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "taking-a-break-from-the-scroll",
+      "title": "Taking a break from the scroll without missing out",
+      "excerpt": "A small screen break can give your attention and mood a chance to reset.",
+      "category": "Wellbeing",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-09-09T09:00:00.000Z",
+      "image": "teen-safety-education.JPG",
+      "imageAlt": "Teenagers taking part in a wellbeing activity",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Notice how you feel",
+          "paragraphs": [
+            "Sometimes scrolling is relaxing. Other times, you might notice that you feel tense, left out, or tired afterward. Those feelings are useful information—not a reason to blame yourself.",
+            "Try a short pause and see whether it helps. You could get a drink, stretch, step outside, or do something that does not need a screen."
+          ]
+        },
+        {
+          "heading": "Make breaks work for you",
+          "paragraphs": [
+            "You do not need a strict rule or a perfect routine. Turning off a few non-essential notifications or choosing a time to put your phone down can make a difference.",
+            "If you are worried about missing important messages, tell friends when you are taking a break and agree on another way to reach you for something urgent."
+          ]
+        },
+        {
+          "heading": "Reach out when you need to",
+          "paragraphs": [
+            "If online experiences are affecting your sleep, mood, or sense of safety, talk with someone you trust. You deserve support that takes your feelings seriously."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "reporting-something-that-feels-wrong",
+      "title": "Reporting something online that does not feel right",
+      "excerpt": "Using a report or block tool is a reasonable step when a person or post makes you feel unsafe.",
+      "category": "Everyday digital safety",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-09-02T09:00:00.000Z",
+      "image": "digital-literacy-and-online-safety.JPG",
+      "imageAlt": "A workshop helping young people build online safety skills",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Trust your sense that something is off",
+          "paragraphs": [
+            "You do not need to be certain that a rule was broken before asking for help. If a message, account, or interaction makes you uncomfortable, you can stop responding and consider the platform's report or block options.",
+            "Reporting tools vary by service. Look for the platform's own help information if you are unsure what happens after a report."
+          ]
+        },
+        {
+          "heading": "Get support with next steps",
+          "paragraphs": [
+            "If it is safe, you might make a note of the account name and when the interaction happened. Do not forward private images or put yourself at risk to collect evidence.",
+            "A trusted adult can help you decide what to do and whether another service should be involved. If there is immediate danger, seek urgent local help."
+          ]
+        },
+        {
+          "heading": "You are not alone",
+          "paragraphs": [
+            "Asking for help is a sensible response. You deserve to be listened to and supported, whatever happened."
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ask-before-sharing-someone-elses-photo",
+      "title": "Ask before sharing someone else's photo",
+      "excerpt": "A quick check can protect a friend's privacy and show that you respect their choice.",
+      "category": "Friends and communication",
+      "author": "DigiSafe AI Team",
+      "publishedAt": "2026-08-26T09:00:00.000Z",
+      "image": "girl-child-education.jpg",
+      "imageAlt": "Students working together in a supportive learning space",
+      "isFeatured": false,
+      "isPublished": true,
+      "content": [
+        {
+          "heading": "Being in a photo is not the same as agreeing to share it",
+          "paragraphs": [
+            "A picture taken at school, a party, or during a call can feel like a fun memory. Still, the people in it may have different ideas about where it should appear.",
+            "Ask before posting or forwarding a photo, especially if it shows someone's home, school, location, or a moment they might consider private."
+          ]
+        },
+        {
+          "heading": "Respect the answer",
+          "paragraphs": [
+            "If your friend says no, leave it there. If they change their mind after you post, take the photo down where you can and do not pass it on.",
+            "You can also ask someone before tagging them. A tag may make a post visible to people they did not expect."
+          ]
+        },
+        {
+          "heading": "Private images need extra care",
+          "paragraphs": [
+            "Never forward an intimate or private image of someone. If an image is being shared without permission, do not spread it further; tell a trusted adult or appropriate support service."
+          ]
+        }
+      ]
+    }
+  ]
+}

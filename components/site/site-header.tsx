@@ -10,6 +10,7 @@ const navigation = [
   { href: "/companion", label: "Talk to AI" },
   { href: "/help-now", label: "Get help now" },
   { href: "/learn", label: "Learn" },
+  { href: "/blog", label: "Blog" },
 ];
 
 export function SiteHeader({
@@ -49,10 +50,10 @@ export function SiteHeader({
               <Image
                 alt=""
                 className="site-brand-image"
-                height={60}
                 style={{ objectFit: "contain" }}
+                fill
+                sizes="38px"
                 src="/logo.png"
-                width={60}
               />
             </span>
             <span>DigiSafe <span className="text-primary">AI</span></span>

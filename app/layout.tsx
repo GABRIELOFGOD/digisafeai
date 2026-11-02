@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
+const sourceSerif4 = Source_Serif_4({ subsets: ["latin"], variable: "--font-source-serif-4" });
 export const metadata: Metadata = {
   title: {
     default: "DigiSafe AI",
@@ -24,7 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    // <html lang="en" className={`${inter.variable} ${sourceSerif4.variable}`}>
+    <html lang="en" className={`${sourceSerif4.variable}`}>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         {children}
       </body>

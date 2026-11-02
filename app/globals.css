@@ -8,6 +8,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --font-serif: var(--font-source-serif-4);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --font-heading: var(--font-inter);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -228,16 +229,12 @@
   width: 2.35rem;
   height: 2.35rem;
   flex: 0 0 2.35rem;
-  overflow: hidden;
   border-radius: 0.75rem;
   background: white;
 }
 
 .site-brand-image {
-  position: absolute;
-  top: -0.25rem;
-  left: -0.3rem;
-  max-width: none;
+  object-fit: contain;
 }
 
 .site-nav {
@@ -451,6 +448,9 @@
 }
 
 .home-features {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: max(1.25rem, calc((100vw - 70rem) / 2));
   padding-block: 1rem 1.4rem;
 }
 
@@ -910,9 +910,13 @@
     background: var(--secondary);
   }
 
-  .public-main {
+  /* .public-main {
     width: calc(100% - 2rem);
     padding-block: 1.5rem calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  } */
+
+  .home-features {
+    padding-inline: max(1rem, calc((100vw - 70rem) / 2));
   }
 
   .home-hero {

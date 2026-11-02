@@ -6,6 +6,9 @@ import {
   MessageCircle,
   ShieldCheck,
 } from "lucide-react";
+import Projects from "./projects";
+import { FeaturedBlogs } from "@/features/blogs/featured-blogs";
+import ProblemAwareness from "./problem-awareness";
 
 const features = [
   {
@@ -44,14 +47,13 @@ const features = [
 
 export function HomePage() {
   return (
-    <main id="main-content" className="public-main">
+    <main id="main-content" className="public-main flex flex-col gap-10">
       <section className="home-hero">
         <div className="home-hero-copy">
-          <p className="eyebrow">Child protection · Digital safety · Support</p>
-          <h1>Speak up. Find support. Stay safer.</h1>
+          <p className="eyebrow">Child/Teen protection · Digital safety · Support</p>
+          <h1>Speak up. Find support. Stay safe <span className="text-primary">Online</span>.</h1>
           <p className="home-hero-description">
-            A calm place for students to share a concern, explore their options,
-            and find a next step. You don’t need an account to report.
+            <span className="font-semibold light:text-black dark:text-primary">DigiSafe AI</span> offers confidential support, trusted information, reporting pathways, and resources for teenagers affected by digital threats, physical abuse/violence and image based sexual abuse.
           </p>
           <div className="home-hero-actions">
             <Link className="button-primary" href="/report">
@@ -61,10 +63,10 @@ export function HomePage() {
               Get help now
             </Link>
           </div>
-          <p className="home-hero-note">
+          {/* <p className="home-hero-note">
             DigiSafe AI is not an emergency service and cannot dispatch
             responders.
-          </p>
+          </p> */}
         </div>
         <Link
           aria-label="Learn about the DigiSafe AI companion"
@@ -73,13 +75,40 @@ export function HomePage() {
         >
           <span aria-hidden="true" className="home-orb-ring" />
           <span aria-hidden="true" className="home-orb" />
-          <span className="home-orb-caption">Support is being prepared</span>
+          <span className="home-orb-caption">Talk to DigiSafe AI</span>
         </Link>
+      </section>
+
+      <section className="w-full flex flex-col md:flex-row border divide-border justify-between">
+        <div className="px-8 py-4 flex justify-center items-center flex-col">
+          <span className="text-2xl font-bold">300+</span>
+          <p className="text-sm text-muted-foreground">
+            Users
+          </p>
+        </div>
+        <div className="px-8 py-4 flex justify-center items-center flex-col">
+          <span className="text-2xl font-bold">50+</span>
+          <p className="text-sm text-muted-foreground">
+            People accessed digital resources
+          </p>
+        </div>
+        <div className="px-8 py-4 flex justify-center items-center flex-col">
+          <span className="text-2xl font-bold">5</span>
+          <p className="text-sm text-muted-foreground">
+            Awareness sessions delivered
+          </p>
+        </div>
+        <div className="px-8 py-4 flex justify-center items-center flex-col">
+          <span className="text-2xl font-bold">1000+</span>
+          <p className="text-sm text-muted-foreground">
+            Teenagers and students reached
+          </p>
+        </div>
       </section>
 
       <section
         aria-labelledby="features-heading"
-        className="home-features"
+        className="home-features bg-muted px-40 py-20"
       >
         <div className="home-section-heading">
           <h2 id="features-heading">Choose what feels right for you</h2>
@@ -116,14 +145,18 @@ export function HomePage() {
           })}
         </ul>
       </section>
-      <aside className="safety-note">
+      {/* <aside className="safety-note">
         <ShieldCheck aria-hidden="true" size={21} />
         <p>
           DigiSafe AI is an initiative of AYVDI. The AI companion is not
           available yet, and no content here replaces support from trained
           people. What happened is not your fault.
         </p>
-      </aside>
+      </aside> */}
+
+      <Projects />
+      <FeaturedBlogs />
+      <ProblemAwareness />
     </main>
   );
 }
