@@ -19,6 +19,24 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/staff/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "private, no-store, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/api/v1/staff/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "private, no-store, max-age=0, must-revalidate",
+          },
+        ],
+      },
     ];
   },
   experimental: {

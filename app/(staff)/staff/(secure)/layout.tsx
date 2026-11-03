@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { connection } from "next/server";
 import { StaffNavigation } from "@/components/staff/staff-navigation";
 import { requireStaffSession } from "@/lib/auth/staff-session";
 
@@ -9,6 +10,7 @@ export default async function SecureStaffLayout({
 }: {
   children: ReactNode;
 }) {
+  await connection();
   const session = await requireStaffSession();
 
   return (
