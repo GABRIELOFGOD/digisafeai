@@ -7,6 +7,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import Projects from "./projects";
+import { AnimatedStat } from "./animated-stat";
 import { FeaturedBlogs } from "@/features/blogs/featured-blogs";
 import ProblemAwareness from "./problem-awareness";
 
@@ -81,25 +82,33 @@ export function HomePage() {
 
       <section className="w-full flex flex-col md:flex-row border divide-border justify-between">
         <div className="px-8 py-4 flex justify-center items-center flex-col">
-          <span className="text-2xl font-bold">300+</span>
+          <span className="text-2xl font-bold">
+            <AnimatedStat value={300} suffix="+" />
+          </span>
           <p className="text-sm text-muted-foreground">
             Users
           </p>
         </div>
         <div className="px-8 py-4 flex justify-center items-center flex-col">
-          <span className="text-2xl font-bold">50+</span>
+          <span className="text-2xl font-bold">
+            <AnimatedStat value={50} suffix="+" />
+          </span>
           <p className="text-sm text-muted-foreground">
             People accessed digital resources
           </p>
         </div>
         <div className="px-8 py-4 flex justify-center items-center flex-col">
-          <span className="text-2xl font-bold">5</span>
+          <span className="text-2xl font-bold">
+            <AnimatedStat value={5} />
+          </span>
           <p className="text-sm text-muted-foreground">
             Awareness sessions delivered
           </p>
         </div>
         <div className="px-8 py-4 flex justify-center items-center flex-col">
-          <span className="text-2xl font-bold">1000+</span>
+          <span className="text-2xl font-bold">
+            <AnimatedStat value={1000} suffix="+" />
+          </span>
           <p className="text-sm text-muted-foreground">
             Teenagers and students reached
           </p>
