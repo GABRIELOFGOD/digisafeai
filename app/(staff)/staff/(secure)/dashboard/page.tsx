@@ -65,6 +65,16 @@ export default async function StaffDashboardPage() {
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
           <Link
             className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary"
+            href="/staff/conversations"
+          >
+            <h2 className="font-semibold">Review AI conversations</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">
+              Access saved companion conversations and remove them when they
+              are no longer needed.
+            </p>
+          </Link>
+          <Link
+            className="rounded-xl border border-border bg-card p-5 transition-colors hover:border-primary"
             href="/staff/blog"
           >
             <h2 className="font-semibold">Manage blog</h2>

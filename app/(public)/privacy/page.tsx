@@ -20,6 +20,18 @@ export default function PrivacyPage() {
       </p>
       <section className="mt-8 space-y-6">
         <div>
+          <h2 className="text-lg font-semibold">AI companion conversations</h2>
+          <p className="mt-2 leading-7 text-muted-foreground">
+            If you choose to use Digisafe AI, your messages and the AI replies
+            are saved with a unique conversation code and can be reviewed by
+            authorised AYVDI administrators. Conversations remain saved until
+            an administrator deletes them. Your messages are sent to OpenAI to
+            generate replies; OpenAI processes them under its applicable
+            service terms. Do not share names, addresses, passwords, or
+            intimate images in the chat.
+          </p>
+        </div>
+        <div>
           <h2 className="text-lg font-semibold">Who can access a report?</h2>
           <p className="mt-2 leading-7 text-muted-foreground">
             Report details are stored for review by authorised AYVDI
@@ -45,10 +57,10 @@ export default function PrivacyPage() {
         <div className="rounded-xl border border-border bg-muted p-5">
           <h2 className="font-semibold">Policy details to be confirmed</h2>
           <p className="mt-2 leading-7 text-muted-foreground">
-            AYVDI must publish its approved lawful basis, retention and deletion
-            period, privacy contact, and data-protection process before
-            production rollout. This page does not replace a reviewed privacy
-            notice.
+            AYVDI must approve the lawful basis, retention and deletion
+            process, privacy contact, and data-protection arrangements,
+            including OpenAI data-processing terms, before production rollout.
+            This page does not replace a reviewed privacy notice.
           </p>
         </div>
       </section>

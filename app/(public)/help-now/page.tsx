@@ -17,7 +17,9 @@ export default function HelpNowPage() {
       <div className="mt-6 rounded-xl border border-border bg-card p-5 leading-7 sm:p-6">
         <h2 className="font-semibold">Emergency help</h2>
         <p className="mt-2 text-muted-foreground">
-          DigiSafe AI can dispatch emergency help. Call our emergency line at{" "}
+          DigiSafe AI cannot dispatch emergency help. If someone is in
+          immediate danger, contact local emergency services or a trusted
+          adult now. For AYVDI safeguarding support, call{" "}
           <a className="font-semibold text-primary underline-offset-4 hover:underline" href="tel:+2348108302763">
             +234 810 830 2763
           </a>

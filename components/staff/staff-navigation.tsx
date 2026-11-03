@@ -6,6 +6,7 @@ import {
   ClipboardList,
   FolderKanban,
   LayoutDashboard,
+  MessageSquareText,
   Menu,
   Newspaper,
   Users,
@@ -21,6 +22,7 @@ const staffLinks = [
 ];
 
 const adminLinks = [
+  { href: "/staff/conversations", label: "AI conversations", icon: MessageSquareText },
   { href: "/staff/blog", label: "Blog", icon: Newspaper },
   { href: "/staff/projects", label: "Projects", icon: FolderKanban },
   { href: "/staff/team", label: "Administrators", icon: Users },
