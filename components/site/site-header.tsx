@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SunMoon } from "lucide-react";
+import { Menu, SunMoon, X } from "lucide-react";
+import { useState } from "react";
 
 const navigation = [
   { href: "/report", label: "Report" },
@@ -19,6 +20,10 @@ export function SiteHeader({
   onToggleTheme: () => void;
 }) {
   const pathname = usePathname();
+  const [mobileMenu, setMobileMenu] = useState({ pathname, open: false });
+  const isMobileNavOpen =
+    mobileMenu.pathname === pathname && mobileMenu.open;
+
   const navLinks = () =>
     navigation.map((item) => {
       const isCurrent =
@@ -63,6 +68,22 @@ export function SiteHeader({
           </nav>
           <div className="site-header-actions">
             <button
+              aria-controls="mobile-site-navigation"
+              aria-expanded={isMobileNavOpen}
+              aria-label={isMobileNavOpen ? "Close navigation" : "Open navigation"}
+              className="mobile-menu-toggle"
+              onClick={() =>
+                setMobileMenu({ pathname, open: !isMobileNavOpen })
+              }
+              type="button"
+            >
+              {isMobileNavOpen ? (
+                <X aria-hidden="true" size={21} />
+              ) : (
+                <Menu aria-hidden="true" size={21} />
+              )}
+            </button>
+            <button
               aria-label="Toggle color theme"
               className="theme-toggle"
               onClick={onToggleTheme}
@@ -74,12 +95,15 @@ export function SiteHeader({
           </div>
         </div>
       </header>
-      <nav
-        aria-label="Mobile main navigation"
-        className="site-nav-mobile"
-      >
-        {navLinks()}
-      </nav>
+      {isMobileNavOpen && (
+        <nav
+          aria-label="Mobile main navigation"
+          className="site-nav-mobile is-open"
+          id="mobile-site-navigation"
+        >
+          {navLinks()}
+        </nav>
+      )}
     </>
   );
 }

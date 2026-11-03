@@ -1,7 +1,7 @@
-export type BlogSection = {
-  heading: string;
-  paragraphs: string[];
-};
+import type {
+  LegacyBlogSection,
+  RichTextDocument,
+} from "@/features/rich-content/rich-text";
 
 export type BlogPost = {
   slug: string;
@@ -13,7 +13,8 @@ export type BlogPost = {
   image: string;
   imageAlt: string;
   isFeatured: boolean;
-  content: BlogSection[];
+  isPublished: boolean;
+  content: RichTextDocument | LegacyBlogSection[];
 };
 
 export type BlogListResponse = {

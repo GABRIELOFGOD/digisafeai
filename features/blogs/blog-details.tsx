@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useBlog } from "@/hooks/blogs";
+import { imageSource } from "@/features/rich-content/rich-text";
+import { RichTextContent } from "@/features/rich-content/rich-text-content";
 
 export function BlogDetails({ slug }: { slug: string }) {
   const { blog, isLoading, error } = useBlog(slug);
@@ -49,7 +51,8 @@ export function BlogDetails({ slug }: { slug: string }) {
             fill
             priority
             sizes="(max-width: 768px) 100vw, 768px"
-            src={`/${blog.image}`}
+            src={imageSource(blog.image)}
+            unoptimized={blog.image.startsWith("/api/v1/content-images/")}
           />
         </div>
         <header className="mt-8">
@@ -68,22 +71,8 @@ export function BlogDetails({ slug }: { slug: string }) {
             }).format(new Date(blog.publishedAt))}
           </p>
         </header>
-        <div className="mt-8 space-y-8">
-          {blog.content.map((section) => (
-            <section key={section.heading}>
-              <h2 className="text-xl font-semibold">{section.heading}</h2>
-              <div className="mt-3 space-y-4">
-                {section.paragraphs.map((paragraph) => (
-                  <p
-                    className="leading-7 text-muted-foreground"
-                    key={paragraph}
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </section>
-          ))}
+        <div className="mt-8">
+          <RichTextContent content={blog.content} />
         </div>
         <footer className="mt-10 border-t border-border pt-6">
           <p className="leading-7 text-muted-foreground">

@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import type {
   BlogDetailResponse,
   BlogListResponse,
-  BlogSection,
   BlogPost,
 } from "@/features/blogs/blog.types";
+import type { LegacyBlogSection } from "@/features/rich-content/rich-text";
+import { isRichTextDocument } from "@/features/rich-content/rich-text";
 
-function isBlogSection(value: unknown): value is BlogSection {
+function isBlogSection(value: unknown): value is LegacyBlogSection {
   return (
     typeof value === "object" &&
     value !== null &&
@@ -45,9 +46,11 @@ function isBlogPost(value: unknown): value is BlogPost {
     typeof value.imageAlt === "string" &&
     "isFeatured" in value &&
     typeof value.isFeatured === "boolean" &&
+    "isPublished" in value &&
+    typeof value.isPublished === "boolean" &&
     "content" in value &&
-    Array.isArray(value.content) &&
-    value.content.every(isBlogSection)
+    ((Array.isArray(value.content) && value.content.every(isBlogSection)) ||
+      isRichTextDocument(value.content))
   );
 }
 

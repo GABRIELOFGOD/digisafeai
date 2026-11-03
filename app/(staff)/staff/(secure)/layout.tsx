@@ -12,11 +12,11 @@ export default async function SecureStaffLayout({
   const session = await requireStaffSession();
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <StaffNavigation name={session.user.name} />
-      <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 sm:px-8">
-        {children}
-      </main>
+    <div className="staff-shell">
+      <StaffNavigation name={session.user.name} role={session.user.role ?? ""} />
+      <div className="staff-main">
+        <main className="staff-content">{children}</main>
+      </div>
     </div>
   );
 }

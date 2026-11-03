@@ -7,11 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed:blogs": "node --experimental-strip-types --env-file=.env scripts/seed-blogs.mjs"
+    "seed:blogs": "node --env-file=.env scripts/seed-blogs.mjs",
+    "seed:projects": "node --env-file=.env scripts/seed-projects.mjs",
+    "seed:first-admin": "node --env-file=.env scripts/seed-first-admin.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
     "@better-auth/mongo-adapter": "^1.7.14",
+    "@tiptap/extension-link": "^3.32.2",
+    "@tiptap/react": "^3.32.2",
+    "@tiptap/starter-kit": "^3.32.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "better-auth": "^1.7.14",

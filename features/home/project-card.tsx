@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/hooks/projects";
+import { imageSource } from "@/features/rich-content/rich-text";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -15,7 +16,8 @@ const ProjectCard = ({ project }: { project: Project }) => {
             className="object-cover"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            src={`/${project.image}`}
+            src={imageSource(project.image)}
+            unoptimized={project.image.startsWith("/api/v1/content-images/")}
           />
         </div>
         <div className="flex flex-1 flex-col gap-2 p-4">

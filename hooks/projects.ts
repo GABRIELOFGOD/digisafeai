@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { RichTextDocument } from "@/features/rich-content/rich-text";
 
 export type Project = {
   id: number;
@@ -9,7 +10,7 @@ export type Project = {
   image: string;
   slug: string;
   outcomes: string[];
-  fullDescription: string;
+  fullDescription: string | RichTextDocument;
 };
 
 function isProject(value: unknown): value is Project {
@@ -30,7 +31,13 @@ function isProject(value: unknown): value is Project {
     Array.isArray(value.outcomes) &&
     value.outcomes.every((outcome) => typeof outcome === "string") &&
     "fullDescription" in value &&
-    typeof value.fullDescription === "string"
+    (typeof value.fullDescription === "string" ||
+      (typeof value.fullDescription === "object" &&
+        value.fullDescription !== null &&
+        "type" in value.fullDescription &&
+        value.fullDescription.type === "doc" &&
+        "content" in value.fullDescription &&
+        Array.isArray(value.fullDescription.content)))
   );
 }
 

@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useProject } from "@/hooks/projects";
+import { imageSource } from "@/features/rich-content/rich-text";
+import { RichTextContent } from "@/features/rich-content/rich-text-content";
 
 export default function ProjectDetails({ slug }: { slug: string }) {
   const { project, isLoading, error } = useProject(slug);
@@ -49,7 +51,8 @@ export default function ProjectDetails({ slug }: { slug: string }) {
             fill
             priority
             sizes="(max-width: 1120px) 100vw, 1120px"
-            src={`/${project.image}`}
+            src={imageSource(project.image)}
+            unoptimized={project.image.startsWith("/api/v1/content-images/")}
           />
         </div>
         <header className="mt-8">
@@ -63,9 +66,9 @@ export default function ProjectDetails({ slug }: { slug: string }) {
         </header>
         <section className="mt-8 max-w-3xl">
           <h2 className="text-xl font-semibold">Project story</h2>
-          <p className="mt-3 whitespace-pre-line leading-7 text-muted-foreground">
-            {project.fullDescription}
-          </p>
+          <div className="mt-3">
+            <RichTextContent content={project.fullDescription} />
+          </div>
         </section>
         <section className="mt-8">
           <h2 className="text-xl font-semibold">Expected outcomes</h2>

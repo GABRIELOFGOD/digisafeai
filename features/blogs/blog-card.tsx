@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { BlogPost } from "./blog.types";
+import { imageSource } from "@/features/rich-content/rich-text";
 
 export function BlogCard({ blog }: { blog: BlogPost }) {
   return (
@@ -16,7 +17,8 @@ export function BlogCard({ blog }: { blog: BlogPost }) {
             className="object-cover"
             fill
             sizes="(max-width: 700px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            src={`/${blog.image}`}
+            src={imageSource(blog.image)}
+            unoptimized={blog.image.startsWith("/api/v1/content-images/")}
           />
         </Link>
         <div className="flex flex-1 flex-col items-start gap-3 p-5">

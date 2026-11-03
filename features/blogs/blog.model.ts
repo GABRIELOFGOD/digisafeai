@@ -1,9 +1,5 @@
 import mongoose, { type Document, type Model } from "mongoose";
-
-type BlogSection = {
-  heading: string;
-  paragraphs: string[];
-};
+import type { BlogPost } from "./blog.types";
 
 const { model, models, Schema } = mongoose;
 
@@ -18,21 +14,10 @@ export interface BlogRecord extends Document {
   imageAlt: string;
   isFeatured: boolean;
   isPublished: boolean;
-  content: BlogSection[];
+  content: BlogPost["content"];
   createdAt: Date;
   updatedAt: Date;
 }
-
-const blogSectionSchema = new Schema<BlogSection>(
-  {
-    heading: { type: String, required: true, trim: true },
-    paragraphs: {
-      type: [{ type: String, required: true, trim: true }],
-      required: true,
-    },
-  },
-  { _id: false },
-);
 
 const blogSchema = new Schema<BlogRecord>(
   {
@@ -46,7 +31,7 @@ const blogSchema = new Schema<BlogRecord>(
     imageAlt: { type: String, required: true, trim: true, maxlength: 180 },
     isFeatured: { type: Boolean, default: false, required: true },
     isPublished: { type: Boolean, default: true, required: true },
-    content: { type: [blogSectionSchema], required: true },
+    content: { type: Schema.Types.Mixed, required: true },
   },
   { timestamps: true, versionKey: false },
 );

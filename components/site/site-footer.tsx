@@ -7,7 +7,7 @@ export function SiteFooter() {
         <p className="site-footer-brand">
           DigiSafe AI
           <span>
-            Advocacy for Youth and Vulnerable Development Initiative
+            An initiative of Advocacy for Youth and Vulnerable Development Initiative (AYVDI)
           </span>
         </p>
         <nav aria-label="Footer navigation" className="site-footer-nav">
