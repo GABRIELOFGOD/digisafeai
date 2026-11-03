@@ -107,7 +107,7 @@ export function RichTextEditor({
         <button aria-label="Undo" className={buttonClass} disabled={!editor.can().undo()} onClick={() => editor.chain().focus().undo().run()} type="button"><Undo2 size={16} /></button>
         <button aria-label="Redo" className={buttonClass} disabled={!editor.can().redo()} onClick={() => editor.chain().focus().redo().run()} type="button"><Redo2 size={16} /></button>
       </div>
-      <EditorContent editor={editor} />
+      <EditorContent className="p-4" editor={editor} />
     </div>
   );
 }
