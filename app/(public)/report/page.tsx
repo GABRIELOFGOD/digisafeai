@@ -20,13 +20,11 @@ export default function ReportPage() {
         </p>
         <div className="report-note">
           <p>
-            Reports are reviewed by the safeguarding team. DigiSafe AI is not
-            an emergency service and cannot dispatch emergency responders.
+            Reports are reviewed and acted on by AYVDi safeguarding team.
           </p>
           <p>
-            Anonymous reports can limit follow-up. If you choose to provide a
-            safe contact method, it is stored separately in encrypted form.
-            Technical metadata may still be processed by the service.
+            Anonymous reports can limit follow-up. If you choose to provide
+            safe contact details, it is stored separately in encrypted form.
           </p>
           <p>
             Please do not upload or send nude or private images. A description

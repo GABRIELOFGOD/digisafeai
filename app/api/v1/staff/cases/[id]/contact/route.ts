@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { Types } from "mongoose";
 import { ReportContactModel } from "@/features/reports/report-contact.model";
+import { ReportModel } from "@/features/reports/report.model";
 import { connectToDatabase } from "@/lib/db/mongoose";
 import { recordCaseEvent } from "@/lib/audit/record-case-event";
 import { getStaffSession } from "@/lib/auth/staff-session";
@@ -22,11 +23,26 @@ export async function GET(_request: Request, { params }: RouteContext) {
   }
 
   await connectToDatabase();
-  const contact = await ReportContactModel.findOne({ reportId: id })
-    .select("+encryptedValue")
+  const report = await ReportModel.findById(id)
+    .select("+safeContactMethod +encryptedSafeContact")
     .lean();
+  const hasEmbeddedContact = Boolean(
+    report?.safeContactMethod && report.encryptedSafeContact,
+  );
+  const legacyContact = hasEmbeddedContact
+    ? null
+    : await ReportContactModel.findOne({ reportId: id })
+        .select("+encryptedValue")
+        .lean();
 
-  if (!contact) {
+  const encryptedValue = hasEmbeddedContact
+    ? report?.encryptedSafeContact
+    : legacyContact?.encryptedValue;
+  const method = hasEmbeddedContact
+    ? report?.safeContactMethod
+    : legacyContact?.method;
+
+  if (!encryptedValue || !method) {
     return Response.json({ error: "No safe contact was provided." }, { status: 404 });
   }
 
@@ -34,8 +50,8 @@ export async function GET(_request: Request, { params }: RouteContext) {
     await recordCaseEvent(staff.user.id, "contact_viewed", id);
     return Response.json(
       {
-        method: contact.method,
-        value: decryptContactValue(contact.encryptedValue),
+        method,
+        value: decryptContactValue(encryptedValue),
       },
       { headers: { "Cache-Control": "private, no-store" } },
     );

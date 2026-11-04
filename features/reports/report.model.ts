@@ -24,6 +24,8 @@ export interface ReportRecord extends Document {
   approximateDate?: string;
   generalLocation?: string;
   onlinePlatform?: string;
+  safeContactMethod?: "phone" | "email";
+  encryptedSafeContact?: string;
   immediateDanger: boolean;
   urgency: HumanUrgency;
   status: ReportStatus;
@@ -49,6 +51,8 @@ const reportSchema = new Schema<ReportRecord>(
     approximateDate: { type: String, maxlength: 40 },
     generalLocation: { type: String, maxlength: 120 },
     onlinePlatform: { type: String, maxlength: 120 },
+    safeContactMethod: { type: String, enum: ["phone", "email"], select: false },
+    encryptedSafeContact: { type: String, select: false },
     immediateDanger: { type: Boolean, required: true },
     urgency: {
       type: String,

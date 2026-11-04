@@ -1282,6 +1282,36 @@
   white-space: pre-wrap;
 }
 
+.companion-message-text > :first-child {
+  margin-top: 0;
+}
+
+.companion-message-text > :last-child {
+  margin-bottom: 0;
+}
+
+.companion-message-text h3 {
+  margin: 1rem 0 0.35rem;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.companion-message-text p {
+  margin: 0.55rem 0;
+}
+
+.companion-message-text ol,
+.companion-message-text ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.5rem 0 0.75rem;
+  padding-left: 1.35rem;
+}
+
+.companion-message-text li {
+  padding-left: 0.1rem;
+}
+
 .companion-typing {
   margin: 0;
   border: 1px solid var(--border);

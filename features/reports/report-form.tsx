@@ -45,6 +45,7 @@ const initialFormValues: FormValues = {
 
 type SubmissionResponse = {
   referenceCode?: string;
+  safeContactStored?: boolean;
   error?: string;
   fieldErrors?: Record<string, string[] | undefined>;
 };
@@ -59,7 +60,18 @@ export function ReportForm() {
   >({});
   const [errorMessage, setErrorMessage] = useState("");
   const [referenceCode, setReferenceCode] = useState("");
+  const [copyMessage, setCopyMessage] = useState("");
+  const [safeContactWarning, setSafeContactWarning] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function copyReferenceCode() {
+    try {
+      await navigator.clipboard.writeText(referenceCode);
+      setCopyMessage("Reference code copied.");
+    } catch {
+      setCopyMessage("Copy unavailable. Please select and copy the code above.");
+    }
+  }
 
   function update<K extends keyof FormValues>(key: K, value: FormValues[K]) {
     setValues((current) => ({ ...current, [key]: value }));
@@ -108,6 +120,7 @@ export function ReportForm() {
       }
 
       setReferenceCode(result.referenceCode);
+      setSafeContactWarning(result.safeContactStored === false);
       setStep("submitted");
     } catch {
       setErrorMessage(
@@ -141,10 +154,29 @@ export function ReportForm() {
         <p className="mt-5 rounded-xl bg-secondary px-4 py-3 font-mono text-lg font-semibold tracking-wider text-primary">
           {referenceCode}
         </p>
+        <Button
+          className="mt-3"
+          onClick={copyReferenceCode}
+          type="button"
+          variant="outline"
+        >
+          Copy reference code
+        </Button>
+        {copyMessage && (
+          <p aria-live="polite" className="mt-2 text-sm" role="status">
+            {copyMessage}
+          </p>
+        )}
         <p className="mt-4 text-sm leading-6 text-muted-foreground">
           If you did not provide a safe contact method, the team may not be able
           to ask follow-up questions.
         </p>
+        {safeContactWarning && (
+          <p className="report-error mt-4" role="alert">
+            Your report was saved, but your safe contact details could not be
+            stored. The team will not be able to use them to follow up.
+          </p>
+        )}
       </section>
     );
   }
@@ -384,8 +416,8 @@ export function ReportForm() {
           <input
             className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2"
             id="approximateDate"
-            maxLength={40}
             onChange={(event) => update("approximateDate", event.target.value)}
+            type="date"
             value={values.approximateDate}
           />
           {fieldErrors.approximateDate?.[0] && (
@@ -442,9 +474,9 @@ export function ReportForm() {
             <span>{value === "yes" ? "Yes" : "No"}</span>
           </label>
         ))}
-        <p className="text-sm leading-6 text-muted-foreground">
+        {/* <p className="text-sm leading-6 text-muted-foreground">
           DigiSafe AI cannot dispatch emergency responders.
-        </p>
+        </p> */}
         {fieldErrors.immediateDanger?.[0] && (
           <p className="text-sm text-destructive">{fieldErrors.immediateDanger[0]}</p>
         )}
@@ -502,8 +534,7 @@ export function ReportForm() {
 
       <p className="text-sm leading-6 text-muted-foreground">
         By continuing, you confirm that you have read the information above.
-        Anonymous reporting can limit follow-up. Technical metadata may still
-        exist.
+        Anonymous reporting can limit follow-up.
       </p>
       <Button className="report-submit-button w-full sm:w-auto" type="submit">
         Review report

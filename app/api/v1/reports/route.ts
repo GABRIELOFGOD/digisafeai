@@ -85,13 +85,19 @@ export async function POST(request: Request) {
   }
 
   try {
-    const referenceCode = await createReport(result.data);
+    const savedReport = await createReport(result.data);
 
-    return Response.json({ referenceCode }, { status: 201 });
+    return Response.json(savedReport, { status: 201 });
   } catch (error) {
     console.error(
       "Report submission failed.",
-      error instanceof Error ? error.name : "UnknownError",
+      {
+        name: error instanceof Error ? error.name : "UnknownError",
+        code:
+          typeof error === "object" && error !== null && "code" in error
+            ? error.code
+            : undefined,
+      },
     );
 
     return Response.json(

@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type ReactNode,
+} from "react";
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -19,6 +25,100 @@ const initialMessage: ChatMessage = {
   content:
     "Hello, I’m Digisafe AI, a product of Advocacy for Youth and Vulnerable Development Initiative (AYVDI). I can help with child protection and online safety. What would you like support with?",
 };
+
+function formatInlineText(text: string, keyPrefix: string): ReactNode[] {
+  return text
+    .split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)
+    .filter(Boolean)
+    .map((part, index) => {
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return <strong key={`${keyPrefix}-${index}`}>{part.slice(2, -2)}</strong>;
+      }
+
+      if (part.startsWith("*") && part.endsWith("*")) {
+        return <em key={`${keyPrefix}-${index}`}>{part.slice(1, -1)}</em>;
+      }
+
+      return part;
+    });
+}
+
+function formatAssistantMessage(content: string) {
+  const blocks: ReactNode[] = [];
+  let paragraph: string[] = [];
+  let listItems: string[] = [];
+  let isOrderedList = false;
+
+  function flushParagraph() {
+    if (paragraph.length === 0) return;
+
+    const text = paragraph.join(" ");
+    blocks.push(
+      <p key={`paragraph-${blocks.length}`}>
+        {formatInlineText(text, `paragraph-${blocks.length}`)}
+      </p>,
+    );
+    paragraph = [];
+  }
+
+  function flushList() {
+    if (listItems.length === 0) return;
+
+    const List = isOrderedList ? "ol" : "ul";
+    blocks.push(
+      <List key={`list-${blocks.length}`}>
+        {listItems.map((item, index) => (
+          <li key={index}>
+            {formatInlineText(item, `list-${blocks.length}-${index}`)}
+          </li>
+        ))}
+      </List>,
+    );
+    listItems = [];
+  }
+
+  for (const rawLine of content.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    const heading = line.match(/^#{1,6}\s+(.+)$/);
+    const orderedItem = line.match(/^\d+[.)]\s+(.+)$/);
+    const unorderedItem = line.match(/^[-*]\s+(.+)$/);
+
+    if (!line) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    if (heading) {
+      flushParagraph();
+      flushList();
+      blocks.push(
+        <h3 key={`heading-${blocks.length}`}>
+          {formatInlineText(heading[1], `heading-${blocks.length}`)}
+        </h3>,
+      );
+      continue;
+    }
+
+    if (orderedItem || unorderedItem) {
+      flushParagraph();
+      const nextIsOrdered = Boolean(orderedItem);
+      if (listItems.length > 0 && isOrderedList !== nextIsOrdered) flushList();
+      isOrderedList = nextIsOrdered;
+      const listItem = orderedItem?.[1] ?? unorderedItem?.[1];
+      if (listItem) listItems.push(listItem);
+      continue;
+    }
+
+    flushList();
+    paragraph.push(line);
+  }
+
+  flushParagraph();
+  flushList();
+
+  return blocks;
+}
 
 export function CompanionChat() {
   const [messages, setMessages] = useState<ChatMessage[]>([initialMessage]);
@@ -156,7 +256,13 @@ export function CompanionChat() {
               <p className="companion-message-author">
                 {item.role === "user" ? "You" : "Digisafe AI"}
               </p>
-              <p className="companion-message-text">{item.content}</p>
+              {item.role === "assistant" ? (
+                <div className="companion-message-text">
+                  {formatAssistantMessage(item.content)}
+                </div>
+              ) : (
+                <p className="companion-message-text">{item.content}</p>
+              )}
             </div>
           </article>
         ))}
