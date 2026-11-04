@@ -8,6 +8,7 @@ import { listStaffDirectory } from "@/features/staff-auth/staff-directory";
 import { recordCaseEvent } from "@/lib/audit/record-case-event";
 import { requireStaffSession } from "@/lib/auth/staff-session";
 import { connectToDatabase } from "@/lib/db/mongoose";
+import { formatNigeriaDateTime } from "@/lib/format-date-time";
 
 type CaseDetailsPageProps = {
   params: Promise<{ id: string }>;
@@ -103,7 +104,7 @@ export default async function CaseDetailsPage({
         <div>
           <dt className="text-sm text-muted-foreground">Received</dt>
           <dd className="mt-1 font-medium">
-            {report.createdAt.toLocaleString()}
+            {formatNigeriaDateTime(report.createdAt)}
           </dd>
         </div>
         {report.approximateDate && (
@@ -166,7 +167,7 @@ export default async function CaseDetailsPage({
                   {action.rationale}
                 </p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  {action.createdAt.toLocaleString()}
+                  {formatNigeriaDateTime(action.createdAt)}
                 </p>
               </li>
             ))}

@@ -5,6 +5,7 @@ import type {
   CompanionArchiveMessage,
   CompanionArchiveSummary,
 } from "@/features/companion/chat.service";
+import { formatNigeriaDateTime } from "@/lib/format-date-time";
 
 type ArchivePage = {
   conversations: CompanionArchiveSummary[];
@@ -181,7 +182,7 @@ export function CompanionArchiveManager({
                   <span className="flex flex-wrap items-center justify-between gap-2">
                     <strong className="font-mono text-sm">{item.chatCode}</strong>
                     <span className="text-xs text-muted-foreground">
-                      {new Date(item.updatedAt).toLocaleString()}
+                      {formatNigeriaDateTime(item.updatedAt)}
                     </span>
                   </span>
                   <span className="mt-2 block line-clamp-2 text-sm text-muted-foreground">
@@ -219,7 +220,7 @@ export function CompanionArchiveManager({
                   {conversation.chatCode}
                 </h2>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  Started {new Date(conversation.createdAt).toLocaleString()}
+                  Started {formatNigeriaDateTime(conversation.createdAt)}
                 </p>
               </div>
               <button
@@ -242,7 +243,7 @@ export function CompanionArchiveManager({
                       {item.role === "user" ? "User" : "Digisafe AI"}
                     </strong>
                     <time className="text-xs text-muted-foreground">
-                      {new Date(item.createdAt).toLocaleString()}
+                      {formatNigeriaDateTime(item.createdAt)}
                     </time>
                   </div>
                   <p className="mt-2 whitespace-pre-wrap wrap-break-word leading-7">

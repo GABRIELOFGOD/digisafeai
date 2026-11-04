@@ -9,6 +9,7 @@ import {
 import { recordCaseEvent } from "@/lib/audit/record-case-event";
 import { requireStaffSession } from "@/lib/auth/staff-session";
 import { connectToDatabase } from "@/lib/db/mongoose";
+import { formatNigeriaDateTime } from "@/lib/format-date-time";
 
 type CaseQueueProps = {
   searchParams: Promise<{
@@ -198,7 +199,7 @@ export async function CaseQueue({ searchParams }: CaseQueueProps) {
                       : report.urgency.replaceAll("_", " ")}
                   </td>
                   <td className="px-4 py-4">
-                    {report.createdAt.toLocaleString()}
+                    {formatNigeriaDateTime(report.createdAt)}
                   </td>
                   <td className="px-4 py-4 text-right">
                     <Link
