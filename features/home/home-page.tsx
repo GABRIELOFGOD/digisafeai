@@ -22,7 +22,7 @@ const features = [
   },
   {
     title: "Talk to the AI companion",
-    description: "The AI companion is functional with safe guiding and privacy review.",
+    description: "The AI companion is functional with safeguarding and privacy reviews.",
     href: "/companion",
     status: "Safety companion",
     icon: MessageCircle,
