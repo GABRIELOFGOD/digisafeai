@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | DigiSafe AI",
   },
   description:
-    "A child-protection and digital-safety platform in development by AYVDI.",
+    "A child-protection and digital-safety platform developed by AYVDI.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",

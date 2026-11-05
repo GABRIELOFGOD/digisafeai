@@ -22,11 +22,11 @@ const features = [
   },
   {
     title: "Talk to the AI companion",
-    description: "The companion is being prepared with safeguarding and privacy reviews.",
+    description: "The AI companion is functional with safe guiding and privacy review.",
     href: "/companion",
-    status: "In development",
+    status: "Safety companion",
     icon: MessageCircle,
-    statusClass: "feature-status-planned",
+    statusClass: "feature-status-live",
   },
   {
     title: "Get help now",
@@ -34,7 +34,7 @@ const features = [
     href: "/help-now",
     status: "Guidance",
     icon: HeartHandshake,
-    statusClass: "feature-status-planned",
+    statusClass: "feature-status-live",
   },
   {
     title: "Learn about online safety",
