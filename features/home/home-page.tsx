@@ -115,6 +115,46 @@ export function HomePage() {
         </div>
       </section>
 
+      <section className="bg-muted px-6 py-8 md:px-10 md:py-12 lg:px-16">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="overflow-hidden rounded-[1.5rem] border border-border bg-background shadow-sm">
+            <div className="aspect-video w-full bg-muted">
+              <iframe
+                src="https://drive.google.com/file/d/1S5MBJ27x1RA7TEeoCCP0sexb-VcQHOGZ/preview"
+                title="Nigerian police awareness video about online nudity among secondary school students"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="h-full w-full border-0"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-primary">
+              Online safety alert
+            </p>
+            <h2 className="text-3xl font-extrabold text-foreground md:text-4xl">
+              The problem is real, and young people need safe, trusted support.
+            </h2>
+            <p className="text-base leading-7 text-muted-foreground">
+              A Nigerian police woman recently highlighted a growing concern: some secondary school students are using the internet in harmful ways, including the sharing of nude or explicit images and content. This kind of digital misuse can damage a person’s dignity, mental wellbeing, reputation, and future opportunities.
+            </p>
+            <p className="text-base leading-7 text-muted-foreground">
+              DigiSafe AI exists to help young people, families, and communities respond early, report what is unsafe, and find guidance before harm escalates. The goal is not shame or blame, it is protection, education, and support.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <Link href="/report" className="button-primary">
+                Report a concern
+              </Link>
+              <Link href="/learn" className="button-secondary">
+                Learn more
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         aria-labelledby="features-heading"
         className="home-features bg-muted px-40 py-20"
