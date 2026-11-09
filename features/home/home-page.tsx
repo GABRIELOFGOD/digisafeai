@@ -135,13 +135,16 @@ export function HomePage() {
               Online safety alert
             </p>
             <h2 className="text-3xl font-extrabold text-foreground md:text-4xl">
-              The problem is real, and young people need safe, trusted support.
+              The problem is real. Teenagers and adolescent girls need safe, trusted support.
             </h2>
             <p className="text-base leading-7 text-muted-foreground">
-              A Nigerian police woman recently highlighted a growing concern: some secondary school students are using the internet in harmful ways, including the sharing of nude or explicit images and content. This kind of digital misuse can damage a person’s dignity, mental wellbeing, reputation, and future opportunities.
+              A Nigerian policewoman, <span className="font-semibold text-foreground">Divisional Police Officer (DPO), Omosetemi Agbede-Zuokumor</span>, recently gained widespread attention for raising a public alarm regarding digital safety, cybercrime, and online exploitation among some secondary school students.
             </p>
             <p className="text-base leading-7 text-muted-foreground">
-              DigiSafe AI exists to help young people, families, and communities respond early, report what is unsafe, and find guidance before harm escalates. The goal is not shame or blame, it is protection, education, and support.
+              She highlighted a growing concern: teenagers in secondary schools using the internet in harmful ways, including sharing of nude or explicit images and content. This kind of digital misuse can damage a person’s dignity, mental wellbeing, reputation, and future opportunities.
+            </p>
+            <p className="text-base leading-7 text-muted-foreground">
+              DigiSafe AI exists to help teenagers, adolescents girls, young people respond early, report what is unsafe, and find guidance before harm escalates. The goal is not shame or blame, it is protection, education, and support against online abuse.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href="/report" className="button-primary">
