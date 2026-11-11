@@ -197,29 +197,29 @@ export function CompanionChat() {
   }
 
   return (
-    <section aria-label="Digisafe AI conversation" className="companion-chat">
-      <header className="companion-chat-header">
-        <div className="companion-chat-identity">
-          <span aria-hidden="true" className="companion-chat-avatar">
+    <section aria-label="Digisafe AI conversation" className="mx-auto mt-8 flex min-h-[38rem] w-full max-w-[54rem] flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-xl max-[700px]:mt-6 max-[700px]:min-h-[34rem]">
+      <header className="flex min-h-20 items-center justify-between gap-4 border-b border-border p-4 max-[700px]:items-start max-[700px]:p-3.5">
+        <div className="flex min-w-0 items-center gap-3">
+          <span aria-hidden="true" className="grid size-11 shrink-0 place-items-center rounded-full bg-primary font-bold text-primary-foreground">
             D
           </span>
           <div>
-            <h2>Digisafe AI</h2>
-            <p>Child protection and online safety</p>
+            <h2 className="m-0 text-base font-bold text-[var(--public-deep)]">Digisafe AI</h2>
+            <p className="mt-1 text-xs text-muted-foreground">Child protection and online safety</p>
           </div>
         </div>
-        <div className="companion-chat-header-actions">
+        <div className="flex flex-wrap items-center justify-end gap-2 max-[700px]:flex-col max-[700px]:items-end">
           {chatCode && (
-            <div className="companion-chat-code">
+            <div className="flex flex-wrap items-center justify-end gap-2 rounded-full border border-border px-3 py-2 text-xs text-muted-foreground max-[700px]:max-w-44 max-[700px]:break-all">
               <span className="font-mono">{chatCode}</span>
-              <button onClick={copyChatCode} type="button">
+              <button className="cursor-pointer border-0 bg-transparent text-xs font-semibold text-primary hover:underline" onClick={copyChatCode} type="button">
                 Copy
               </button>
             </div>
           )}
           {messages.length > 1 && (
             <button
-              className="companion-new-chat"
+              className="cursor-pointer rounded-full border border-border px-3 py-2 text-xs font-semibold text-primary hover:underline"
               onClick={startNewConversation}
               type="button"
             >
@@ -229,39 +229,39 @@ export function CompanionChat() {
         </div>
       </header>
 
-      <p className="companion-privacy-note">
+      <p className="m-0 border-b border-border bg-muted px-5 py-3 text-xs leading-6 text-muted-foreground max-[700px]:px-4">
         Messages are saved for authorised AYVDI administrators until deleted
         and sent to OpenAI to generate replies.{" "}
-        <Link href="/privacy">Privacy details</Link>
+        <Link className="font-semibold text-primary underline-offset-4" href="/privacy">Privacy details</Link>
       </p>
 
       <div
         aria-live="polite"
         aria-relevant="additions"
-        className="companion-message-list"
+        className="flex min-h-80 max-h-[min(55vh,38rem)] flex-1 flex-col gap-4 overflow-y-auto scroll-smooth p-5 max-[700px]:min-h-[19rem] max-[700px]:px-3 max-[700px]:py-4"
         ref={messageListRef}
         role="log"
       >
         {messages.map((item, index) => (
           <article
-            className={`companion-message companion-message-${item.role}`}
+            className={`flex max-w-[88%] items-end gap-2.5 max-[700px]:max-w-[94%] ${item.role === "user" ? "self-end" : ""}`}
             key={`${item.role}-${index}`}
           >
             {item.role === "assistant" && (
-              <span aria-hidden="true" className="companion-message-avatar">
+              <span aria-hidden="true" className="grid size-[1.85rem] shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
                 D
               </span>
             )}
-            <div className="companion-message-content">
-              <p className="companion-message-author">
+            <div className={`min-w-0 rounded-[1.05rem_1.05rem_1.05rem_0.25rem] border border-border bg-muted px-4 py-3 ${item.role === "user" ? "rounded-[1.05rem_1.05rem_0.25rem_1.05rem] border-primary bg-primary text-primary-foreground" : ""}`}>
+              <p className="mb-1 text-xs font-bold opacity-75">
                 {item.role === "user" ? "You" : "Digisafe AI"}
               </p>
               {item.role === "assistant" ? (
-                <div className="companion-message-text">
+                <div className="m-0 break-words text-[0.94rem] leading-relaxed [&>:first-child]:mt-0 [&>:last-child]:mb-0 [&_h3]:mt-4 [&_h3]:mb-1 [&_h3]:text-base [&_h3]:leading-6 [&_p]:my-2 [&_ol]:my-2 [&_ol]:mb-3 [&_ol]:grid [&_ol]:gap-1 [&_ol]:pl-5 [&_ul]:my-2 [&_ul]:mb-3 [&_ul]:grid [&_ul]:gap-1 [&_ul]:pl-5 [&_li]:pl-0.5">
                   {formatAssistantMessage(item.content)}
                 </div>
               ) : (
-                <p className="companion-message-text">{item.content}</p>
+                <p className="m-0 break-words whitespace-pre-wrap text-[0.94rem] leading-relaxed">{item.content}</p>
               )}
             </div>
           </article>
@@ -269,22 +269,23 @@ export function CompanionChat() {
         {isSending && (
           <div
             aria-label="Digisafe AI is responding"
-            className="companion-message companion-message-assistant"
+            className="flex max-w-[88%] items-end gap-2.5"
           >
-            <span aria-hidden="true" className="companion-message-avatar">
+            <span aria-hidden="true" className="grid size-[1.85rem] shrink-0 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
               D
             </span>
-            <p className="companion-typing">Digisafe AI is typing…</p>
+            <p className="m-0 rounded-2xl rounded-bl-sm border border-border bg-muted px-4 py-3 text-sm text-muted-foreground">Digisafe AI is typing…</p>
           </div>
         )}
       </div>
 
-      <form className="companion-composer" onSubmit={sendMessage}>
+      <form className="mx-5 flex items-end gap-3 rounded-2xl border border-border bg-background p-2 focus-within:border-primary focus-within:outline-2 focus-within:outline-primary/25 focus-within:outline-offset-1 max-[700px]:mx-3 max-[700px]:gap-2" onSubmit={sendMessage}>
         <label className="sr-only" htmlFor="companion-message">
           Your message
         </label>
         <textarea
           autoComplete="off"
+          className="min-h-11 max-h-36 flex-1 resize-y border-0 bg-transparent px-3 py-2 text-foreground outline-none placeholder:text-muted-foreground"
           id="companion-message"
           maxLength={2000}
           onChange={(event) => setMessage(event.target.value)}
@@ -301,15 +302,16 @@ export function CompanionChat() {
         />
         <button
           aria-label={isSending ? "Sending message" : "Send message"}
+          className="min-h-11 min-w-18 cursor-pointer rounded-xl border-0 bg-primary px-4 py-2 font-semibold text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
           disabled={isSending || !message.trim()}
           type="submit"
         >
           {isSending ? "…" : "Send"}
         </button>
       </form>
-      <div className="companion-chat-footer">
+      <div className="grid gap-1 px-5 pb-4 pt-3 text-center text-xs leading-6 text-muted-foreground max-[700px]:px-3.5 [&>p]:m-0 [&_.text-destructive]:text-left">
         {errorMessage ? (
-          <p aria-live="assertive" className="report-error" role="alert">
+          <p aria-live="assertive" className="rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive" role="alert">
             {errorMessage}
           </p>
         ) : (

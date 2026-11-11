@@ -136,7 +136,7 @@ export function ReportForm() {
     return (
       <section
         aria-labelledby="report-submitted-heading"
-        className="report-panel"
+        className="mx-auto mt-6 w-full max-w-[40rem] rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8"
         role="status"
       >
         <p className="text-sm font-semibold text-primary">Report saved</p>
@@ -172,7 +172,7 @@ export function ReportForm() {
           to ask follow-up questions.
         </p>
         {safeContactWarning && (
-          <p className="report-error mt-4" role="alert">
+          <p className="mt-4 rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
             Your report was saved, but your safe contact details could not be
             stored. The team will not be able to use them to follow up.
           </p>
@@ -185,21 +185,21 @@ export function ReportForm() {
     return (
       <section
         aria-labelledby="review-report-heading"
-        className="report-panel"
+        className="mx-auto mt-6 w-full max-w-[40rem] rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8"
       >
-        <p className="report-step-label">Step 2 of 2</p>
+        <p className="mb-2 text-sm font-bold text-primary">Step 2 of 2</p>
         <div
           aria-label="Step 2 of 2"
           aria-valuemax={2}
           aria-valuemin={1}
           aria-valuenow={2}
-          className="report-progress"
+          className="mb-5 h-1.5 overflow-hidden rounded-full bg-secondary [&>span]:block [&>span]:h-full [&>span]:rounded-full [&>span]:bg-primary"
           role="progressbar"
         >
           <span style={{ width: "100%" }} />
         </div>
         <h2
-          className="report-review-heading"
+          className="mt-1 text-2xl font-bold text-[var(--public-deep)]"
           id="review-report-heading"
         >
           Review before sending
@@ -208,7 +208,7 @@ export function ReportForm() {
           Check that you are comfortable sharing these details. You can go back
           and change them before submitting.
         </p>
-        <dl className="report-review-list space-y-4">
+        <dl className="mt-6 space-y-4 [&_dt]:text-sm [&_dt]:font-semibold [&_dt]:text-muted-foreground [&_dd]:mt-1 [&_dd]:overflow-wrap-anywhere">
           <div>
             <dt className="text-sm font-medium text-muted-foreground">
               Reporting about
@@ -275,7 +275,7 @@ export function ReportForm() {
           )}
         </dl>
         {errorMessage && (
-          <p className="report-error mt-6" role="alert">
+          <p className="mt-6 rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
             {errorMessage}
           </p>
         )}
@@ -289,7 +289,7 @@ export function ReportForm() {
             Go back and edit
           </Button>
           <Button
-            className="report-submit-button"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-55"
             disabled={isSubmitting}
             onClick={submitReport}
             type="button"
@@ -303,7 +303,7 @@ export function ReportForm() {
 
   return (
     <form
-      className="report-form space-y-7"
+      className="mx-auto mt-6 w-full max-w-[40rem] space-y-7 rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-8"
       onSubmit={(event) => {
         event.preventDefault();
         setErrorMessage("");
@@ -317,13 +317,13 @@ export function ReportForm() {
       }}
     >
       <div>
-        <p className="report-step-label">Step 1 of 2</p>
+        <p className="mb-2 text-sm font-bold text-primary">Step 1 of 2</p>
         <div
           aria-label="Step 1 of 2"
           aria-valuemax={2}
           aria-valuemin={1}
           aria-valuenow={1}
-          className="report-progress"
+          className="mb-5 h-1.5 overflow-hidden rounded-full bg-secondary [&>span]:block [&>span]:h-full [&>span]:w-1/2 [&>span]:rounded-full [&>span]:bg-primary"
           role="progressbar"
         >
           <span />
@@ -331,22 +331,23 @@ export function ReportForm() {
       </div>
 
       {errorMessage && (
-        <p className="report-error" role="alert">
+        <p className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive" role="alert">
           {errorMessage}
         </p>
       )}
 
-      <fieldset className="space-y-3">
-        <legend className="text-base font-semibold">
+      <fieldset className="space-y-3 border-0 p-0">
+        <legend className="mb-3 text-base font-semibold leading-6 text-[var(--public-deep)]">
           Are you reporting something that happened to you or to someone else?
         </legend>
         {(["myself", "someone_else"] as const).map((value) => (
-          <label className="report-choice" key={value}>
+          <label className="flex min-h-13 cursor-pointer items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 font-medium text-foreground transition-colors has-[:checked]:border-primary has-[:checked]:bg-secondary" key={value}>
             <input
               checked={values.reportAbout === value}
               name="reportAbout"
               onChange={() => update("reportAbout", value)}
               required
+              className="accent-primary"
               type="radio"
               value={value}
             />
@@ -359,11 +360,11 @@ export function ReportForm() {
       </fieldset>
 
       <div className="space-y-2">
-        <label className="font-semibold" htmlFor="category">
+        <label className="block font-semibold text-[var(--public-deep)]" htmlFor="category">
           What is the concern?
         </label>
         <select
-          className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2"
+          className="min-h-12 w-full rounded-xl border-[1.5px] border-border bg-background px-3 py-3 text-foreground focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-primary/30 focus-visible:outline-offset-1"
           id="category"
           onChange={(event) =>
             update(
@@ -387,7 +388,7 @@ export function ReportForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="font-semibold" htmlFor="description">
+        <label className="block font-semibold text-[var(--public-deep)]" htmlFor="description">
           Tell us what happened, in your own words
         </label>
         <p className="text-sm leading-6 text-muted-foreground" id="description-help">
@@ -396,7 +397,7 @@ export function ReportForm() {
         </p>
         <textarea
           aria-describedby="description-help"
-          className="min-h-36 w-full rounded-md border border-input bg-background px-3 py-2"
+          className="min-h-36 w-full rounded-xl border-[1.5px] border-border bg-background px-3 py-3 text-foreground focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-primary/30 focus-visible:outline-offset-1"
           id="description"
           maxLength={4000}
           onChange={(event) => update("description", event.target.value)}
@@ -410,11 +411,11 @@ export function ReportForm() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div className="space-y-2">
-          <label className="font-semibold" htmlFor="approximateDate">
+          <label className="block font-semibold text-[var(--public-deep)]" htmlFor="approximateDate">
             Approximate date (optional)
           </label>
           <input
-            className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2"
+            className="min-h-12 w-full rounded-xl border-[1.5px] border-border bg-background px-3 py-3 text-foreground focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-primary/30 focus-visible:outline-offset-1"
             id="approximateDate"
             onChange={(event) => update("approximateDate", event.target.value)}
             type="date"
@@ -425,11 +426,11 @@ export function ReportForm() {
           )}
         </div>
         <div className="space-y-2">
-          <label className="font-semibold" htmlFor="generalLocation">
+          <label className="block font-semibold text-[var(--public-deep)]" htmlFor="generalLocation">
             General location (optional)
           </label>
           <input
-            className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2"
+            className="min-h-12 w-full rounded-xl border-[1.5px] border-border bg-background px-3 py-3 text-foreground focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-primary/30 focus-visible:outline-offset-1"
             id="generalLocation"
             maxLength={120}
             onChange={(event) => update("generalLocation", event.target.value)}
@@ -442,11 +443,11 @@ export function ReportForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="font-semibold" htmlFor="onlinePlatform">
+        <label className="block font-semibold text-[var(--public-deep)]" htmlFor="onlinePlatform">
           Online platform involved (optional)
         </label>
         <input
-          className="min-h-11 w-full rounded-md border border-input bg-background px-3 py-2"
+          className="min-h-12 w-full rounded-xl border-[1.5px] border-border bg-background px-3 py-3 text-foreground focus-visible:border-primary focus-visible:outline-2 focus-visible:outline-primary/30 focus-visible:outline-offset-1"
           id="onlinePlatform"
           maxLength={120}
           onChange={(event) => update("onlinePlatform", event.target.value)}
@@ -457,17 +458,18 @@ export function ReportForm() {
         )}
       </div>
 
-      <fieldset className="space-y-3">
-        <legend className="text-base font-semibold">
+      <fieldset className="space-y-3 border-0 p-0">
+        <legend className="mb-3 text-base font-semibold leading-6 text-[var(--public-deep)]">
           Are you in immediate danger right now?
         </legend>
         {(["yes", "no"] as const).map((value) => (
-          <label className="report-choice" key={value}>
+          <label className="flex min-h-13 cursor-pointer items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 font-medium text-foreground transition-colors has-[:checked]:border-primary has-[:checked]:bg-secondary" key={value}>
             <input
               checked={values.immediateDanger === value}
               name="immediateDanger"
               onChange={() => update("immediateDanger", value)}
               required
+              className="accent-primary"
               type="radio"
               value={value}
             />
@@ -482,8 +484,8 @@ export function ReportForm() {
         )}
       </fieldset>
 
-      <fieldset className="space-y-3">
-        <legend className="text-base font-semibold">
+      <fieldset className="space-y-3 border-0 p-0">
+        <legend className="mb-3 text-base font-semibold leading-6 text-[var(--public-deep)]">
           Would you like to provide a safe way for the team to contact you?
         </legend>
         <p className="text-sm leading-6 text-muted-foreground">
@@ -536,7 +538,7 @@ export function ReportForm() {
         By continuing, you confirm that you have read the information above.
         Anonymous reporting can limit follow-up.
       </p>
-      <Button className="report-submit-button w-full sm:w-auto" type="submit">
+      <Button className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-55 sm:w-auto" type="submit">
         Review report
       </Button>
     </form>

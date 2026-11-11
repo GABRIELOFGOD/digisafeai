@@ -11,7 +11,7 @@ export function BlogDetails({ slug }: { slug: string }) {
 
   if (isLoading) {
     return (
-      <main className="public-main" id="main-content">
+      <main className="mx-auto w-[calc(100%-2.5rem)] max-w-[70rem] flex-1 py-8 pb-15" id="main-content">
         <p className="text-sm text-muted-foreground" aria-live="polite">
           Loading blog post…
         </p>
@@ -21,7 +21,7 @@ export function BlogDetails({ slug }: { slug: string }) {
 
   if (error || !blog) {
     return (
-      <main className="public-main" id="main-content">
+      <main className="mx-auto w-[calc(100%-2.5rem)] max-w-[70rem] flex-1 py-8 pb-15" id="main-content">
         <p className="text-sm text-destructive" role="alert">
           {error || "This blog post could not be found."}
         </p>
@@ -36,7 +36,7 @@ export function BlogDetails({ slug }: { slug: string }) {
   }
 
   return (
-    <main className="public-main" id="main-content">
+    <main className="mx-auto w-[calc(100%-2.5rem)] max-w-[70rem] flex-1 py-8 pb-15" id="main-content">
       <Link
         className="text-sm font-medium text-primary hover:underline"
         href="/blog"
@@ -56,7 +56,7 @@ export function BlogDetails({ slug }: { slug: string }) {
           />
         </div>
         <header className="mt-8">
-          <p className="eyebrow">{blog.category}</p>
+          <p className="mb-4 text-[0.82rem] font-bold uppercase tracking-[0.14em] text-primary">{blog.category}</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
             {blog.title}
           </h1>

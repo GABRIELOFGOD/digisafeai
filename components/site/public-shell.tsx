@@ -22,9 +22,9 @@ export function PublicShell({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="public-shell" data-theme={theme}>
+    <div className="flex min-h-screen flex-col bg-background text-foreground scheme-light data-[theme=dark]:scheme-dark" data-theme={theme}>
       <a
-        className="skip-link"
+        className="absolute left-4 top-4 z-20 -translate-y-[180%] rounded-xl bg-primary px-4 py-3 font-semibold text-primary-foreground focus:translate-y-0"
         href="#main-content"
       >
         Skip to content

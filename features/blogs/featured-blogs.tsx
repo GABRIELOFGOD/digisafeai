@@ -15,7 +15,7 @@ export function FeaturedBlogs() {
     return (
       <section
         aria-labelledby="featured-blogs-heading"
-        className="home-features bg-muted py-12"
+           className="relative left-1/2 ml-[-50vw] w-screen bg-muted px-[max(1.25rem,calc((100vw-70rem)/2))] py-12"
       >
         <h2
           className="text-2xl font-semibold tracking-tight"
@@ -33,11 +33,11 @@ export function FeaturedBlogs() {
   return (
     <section
       aria-labelledby="featured-blogs-heading"
-      className="home-features bg-muted py-20 px-40"
+         className="relative left-1/2 ml-[-50vw] w-screen bg-muted px-[max(1.25rem,calc((100vw-70rem)/2))] py-20"
     >
       <header className="mb-6 flex items-end justify-between gap-4">
         <div>
-          <p className="eyebrow">From the blog</p>
+             <p className="mb-4 text-[0.82rem] font-bold uppercase tracking-[0.14em] text-primary">From the blog</p>
           <h2
             className="mt-2 text-2xl font-semibold tracking-tight"
             id="featured-blogs-heading"

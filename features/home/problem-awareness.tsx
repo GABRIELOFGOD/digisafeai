@@ -4,7 +4,7 @@ const ProblemAwareness = () => {
   return (
     <section
       aria-labelledby="featured-blogs-heading"
-      className="home-features bg-primary py-20 px-40"
+      className="relative left-1/2 ml-[-50vw] w-screen bg-primary px-[max(1.25rem,calc((100vw-70rem)/2))] py-20"
     >
       <div className="flex gap-5 flex-col justify-center items-center text-center">
         <p className="text-muted font-semibold uppercase text-sm">Problem Awareness </p>

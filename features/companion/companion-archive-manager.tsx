@@ -257,7 +257,7 @@ export function CompanionArchiveManager({
       </section>
 
       {errorMessage && (
-        <p aria-live="assertive" className="report-error xl:col-span-2" role="alert">
+        <p aria-live="assertive" className="rounded-lg border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive xl:col-span-2" role="alert">
           {errorMessage}
         </p>
       )}

@@ -14,10 +14,12 @@ export default async function SecureStaffLayout({
   const session = await requireStaffSession();
 
   return (
-    <div className="staff-shell">
+    <div className="flex min-h-screen bg-muted text-foreground max-[900px]:block">
       <StaffNavigation name={session.user.name} role={session.user.role ?? ""} />
-      <div className="staff-main">
-        <main className="staff-content">{children}</main>
+      <div className="min-w-0 flex-1 max-[900px]:min-h-[calc(100vh-4.25rem)]">
+        <main className="mx-auto w-full max-w-[90rem] px-[clamp(1.25rem,3vw,3rem)] py-9 max-[900px]:py-6">
+          {children}
+        </main>
       </div>
     </div>
   );

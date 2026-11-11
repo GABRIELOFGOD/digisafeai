@@ -8,9 +8,9 @@ export function BlogList() {
   const { blogs, isLoading, error } = useBlogs();
 
   return (
-    <main className="public-main" id="main-content">
+    <main className="mx-auto w-[calc(100%-2.5rem)] max-w-[70rem] flex-1 py-8 pb-15" id="main-content">
       <header className="mb-8">
-        <p className="eyebrow">Stories and guidance</p>
+        <p className="mb-4 text-[0.82rem] font-bold uppercase tracking-[0.14em] text-primary">Stories and guidance</p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           The DigiSafe blog
         </h1>
