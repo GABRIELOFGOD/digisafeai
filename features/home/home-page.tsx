@@ -112,12 +112,12 @@ export function HomePage() {
           <div className="overflow-hidden rounded-[1.5rem] border border-border bg-background shadow-sm">
             <div className="aspect-video w-full bg-muted">
               <iframe
-                src="https://drive.google.com/file/d/1S5MBJ27x1RA7TEeoCCP0sexb-VcQHOGZ/preview"
+                src="https://www.youtube.com/embed/XNV9uH9xVTs"
                 title="Nigerian police awareness video about online nudity among secondary school students"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 className="h-full w-full border-0"
-                referrerPolicy="no-referrer"
+                referrerPolicy="strict-origin-when-cross-origin"
               />
             </div>
           </div>
